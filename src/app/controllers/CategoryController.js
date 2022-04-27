@@ -1,11 +1,30 @@
+const CategoriesRepository = require('../repositories/CategoriesRepository')
+
 class CategoryController {
 
-    index(req,res) {
-        res.send('ok- index')
+    async index(req,res) {
+
+
+        // const { orderBy } = req.query
+
+        // const categories = await CategoriesRepository.findAll(orderBy)
+
+        res.json(categories)
+
+
     }
 
-    store(req,res) {
-        res.send('ok- store')
+    async store(req,res) {
+        const { name } = req.body
+
+        if(!name) {
+            res.status(400).json({ error : 'Name is required!'})
+        }
+
+        const category = await CategoriesRepository.create({name})
+
+        return res.json(category)
+
     }
 
 }

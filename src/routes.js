@@ -14,8 +14,8 @@ router.put('/contacts/:id', ContactController.update)
 
 
 // Categories Routes
-router.get('/categories', ContactController.index)
-router.post('/categories', ContactController.store)
+router.get('/categories', CategoryController.index)
+router.post('/categories', CategoryController.store)
 
 
 module.exports = router
