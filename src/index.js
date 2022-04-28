@@ -1,4 +1,5 @@
 const express = require('express');
+require('express-async-errors')
 
 const routes = require('./routes')
 
@@ -9,7 +10,7 @@ app.use(routes);
 app.use((error,req,res,next) => {
     console.log('##### Error Handler')
     console.log(error)
-    res.sendStatus(500)
+    return res.sendStatus(500)
 });
 
 app.listen(3000, () => console.log('🔥 Server started at http://localhost:3000'))

@@ -55,8 +55,6 @@ class ContactsRepository {
         return row
 
     }
-
-
 }
 
 module.exports = new ContactsRepository();
